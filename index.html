@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>WhatsApp Spoilers</title>
+
+    <script>
+        function createSpoilerMessage() {
+            var warning = document.getElementById('warning').value;
+            var content = document.getElementById('content').value;
+            var message = warning + " " + "​".repeat(4000) + content;
+
+            document.getElementById('message').value = message;
+        }
+    </script>
+</head>
+<body>
+<img src="spoiler1.png">
+<div><label for="warning">Warning: </label><input type="text" id="warning" value="[SPOILER]"></div>
+<div><label for="content">Content: </label><textarea id="content" cols="80" rows="4"></textarea></div>
+<div><input type="submit" value="Make spoiler message" onclick=createSpoilerMessage()></div>
+<div><label for="message">Message (copy this): </label><textarea id="message" cols="80" rows="4"
+                                                                 readonly></textarea></div>
+</body>
+</html>
+
