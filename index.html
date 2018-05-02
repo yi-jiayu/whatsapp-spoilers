@@ -21,7 +21,7 @@
     function createSpoilerMessage() {
       var warning = document.getElementById('warning').value;
       var content = document.getElementById('content').value;
-      var message = warning + ' ' + '​'.repeat(4000) + content;
+      var message = warning + ' ' + '\u200B'.repeat(4000) + content;
 
       document.getElementById('message').value = message;
     }
