@@ -6,7 +6,7 @@
   {% comment %} Only include GA snippet in production and if values in _config.yml match the actual site. {% endcomment %}
   {% if jekyll.environment != 'development' and site.github.repository_nwo == site.ga.nwo %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97408514-3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga.tid }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
