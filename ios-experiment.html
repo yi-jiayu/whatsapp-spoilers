@@ -46,9 +46,18 @@
     </div>
 
     <div class="form-group">
-      <label for="padding">Number of zero-width joiners to pad with</label>
+      <label for="padding">Number of characters to pad with</label>
       <input type="number" class="form-control" id="padding" value="10000">
     </div>
+
+    <div class="form-group">
+      <label for="padding">Code point for padding character</label>
+      <input type="text" class="form-control" id="pad-char" value="0x200B" required>
+      <small class="form-text text-muted">Eg. <code>0x200B</code> for zero-width space. See <a
+          href="http://jkorpela.fi/chars/spaces.html">http://jkorpela.fi/chars/spaces.html</a> for examples of
+        Unicode whitespace characters.</small>
+    </div>
+
 
     <div class="form-group">
       <label for="content">Content: </label>
@@ -72,7 +81,8 @@
     var warning = document.getElementById('warning').value;
     var content = document.getElementById('content').value;
     var padding = Number(document.getElementById('padding').value);
-    var message = warning + ' ' + "\u200B".repeat(padding) + content;
+    var padChar = String.fromCharCode(document.getElementById('pad-char').value);
+    var message = warning + ' ' + padChar.repeat(padding) + content;
     document.getElementById('message').value = message;
     document.getElementById('copy').textContent = "Copy to clipboard (".concat(message.length, " chars)");
   }
@@ -88,6 +98,14 @@
   });
   document.getElementById('copy').addEventListener('click', function () {
     copySpoilerMessage();
+  });
+  var padCharInput = document.getElementById('pad-char');
+  padCharInput.addEventListener('input', function (e) {
+    if (isNaN(padCharInput.value)) {
+      padCharInput.setCustomValidity('Not a valid number!');
+    } else {
+      padCharInput.setCustomValidity('');
+    }
   });
 </script>
 </body>
