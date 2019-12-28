@@ -36,7 +36,8 @@
     function createSpoilerMessage() {
       var warning = document.getElementById('warning').value;
       var content = document.getElementById('content').value;
-      var message = warning + ' ' + '\u200B'.repeat(4000) + content;
+      var separator = document.getElementById('separator').value;
+      var message = warning + separator + '\u200B'.repeat(4000) + content;
 
       document.getElementById('message').value = message;
     }
@@ -53,9 +54,21 @@
   <h3><small class="text-muted">Hide content behind a &quot;Read more&quot; button in a WhatsApp message.</small></h3>
 
   <img src="spoiler.png" class="img-fluid my-3">
+
   <div class="form-group">
     <label for="warning">Warning: </label>
     <input type="text" class="form-control" id="warning" value="[SPOILER]">
+  </div>
+
+  <div class="form-group">
+    <label for="separator">Separator: </label>
+    <select class="form-control" id="separator">
+      <option value=" ">Single space (content will still be visible in quoted messages)</option>
+      <option value="
+
+
+">3 lines (ensures content is hidden in quoted messages)</option>
+    </select>
   </div>
 
   <div class="form-group">
@@ -64,15 +77,13 @@
     <button class="btn btn-primary" onclick="createSpoilerMessage()">Submit</button>
   </div>
 
-
   <div class="form-group">
     <label for="message">Message (copy this): </label>
-    <textarea id="message" class="form-control mb-2" readonly></textarea>
+    <textarea id="message" class="form-control mb-2" rows="4" readonly></textarea>
     <button class="btn btn-primary" onclick=copySpoilerMessage()>Copy to clipboard</button>
   </div>
 
   <div class="text-right"><a href="https://github.com/yi-jiayu/whatsapp-spoilers">GitHub</a></div>
-
 </div>
 </body>
 </html>
