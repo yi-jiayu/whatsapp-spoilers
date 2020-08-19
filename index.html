@@ -37,7 +37,8 @@
       var warning = document.getElementById('warning').value;
       var content = document.getElementById('content').value;
       var separator = document.getElementById('separator').value;
-      var message = warning + separator + '\u200B'.repeat(4000) + content;
+      var padding = document.getElementById('iosCompatibilityCheck').checked ? ' '.repeat(2575) :  '\u200B'.repeat(4000);
+      var message = warning + separator + padding + content;
 
       document.getElementById('message').value = message;
     }
@@ -69,6 +70,12 @@
 
 ">3 lines (ensures content is hidden in quoted messages)</option>
     </select>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" id="iosCompatibilityCheck">
+    <label class="form-check-label" for="iosCompatibilityCheck">iOS compatibility mode</label>
+    <small id="iosCompatibilityCheckHelp" class="form-text text-muted">When iOS compatibility mode is enabled, normal spaces will be used instead of zero-width spaces.</small>
   </div>
 
   <div class="form-group">
