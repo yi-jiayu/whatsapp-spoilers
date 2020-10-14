@@ -29,8 +29,8 @@
   <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
   <script>
     function createSpoilerMessage() {
@@ -71,10 +71,10 @@
 ">3 lines (ensures content is hidden in quoted messages)</option>
     </select>
   </div>
-
-  <div class="form-check">
-    <input type="checkbox" id="iosCompatibilityCheck">
-    <label class="form-check-label" for="iosCompatibilityCheck">iOS compatibility mode</label>
+  
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="iosCompatibilityCheck">
+    <label class="custom-control-label" for="iosCompatibilityCheck">iOS compatibility mode</label>
     <small id="iosCompatibilityCheckHelp" class="form-text text-muted">When iOS compatibility mode is enabled, normal spaces will be used instead of zero-width spaces.</small>
   </div>
 
