@@ -38,6 +38,9 @@
       var content = document.getElementById('content').value;
       var separator = document.getElementById('separator').value;
       var padding = document.getElementById('iosCompatibilityCheck').checked ? ' '.repeat(2575) :  '\u200B'.repeat(4000);
+
+      content = content.replace("https://","");
+      content = content.replace("http://","");
       var message = warning + separator + padding + content;
 
       document.getElementById('message').value = message;
